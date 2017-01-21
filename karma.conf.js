@@ -37,7 +37,8 @@ module.exports = function(config){
         _config.browsers = ['Chrome'];
     else{
         {
-            _config.customLaunchers= {
+            _config.browsers = ['Chrome_travis_ci'];
+            _config.customLaunchers = {
                 // chrome setup for travis CI using chromium
                 Chrome_travis_ci: {
                     base: 'Chrome',
