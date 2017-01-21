@@ -12,7 +12,7 @@
     "lint": "tslint ./src/**/*.ts",
     "serve-docs": "node_modules/.bin/compodoc -s -d docs",
     "rimraf": "rimraf",
-    "postinstall": "npm i rimraf -g&& npm run build:prod",
+    "postinstall": "npm i rimraf -g&& npm i karma -g",
     "start": "npm run build:dev",
     "test": "set coverage=true&& set browser=false&& karma start --single-run true",
     "test:dev": "set coverage=false&& set browser=true&& karma start",

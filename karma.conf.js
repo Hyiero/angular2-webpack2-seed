@@ -37,10 +37,13 @@ module.exports = function(config){
         _config.browsers = ['Chrome'];
     else{
         {
-            _config.phantomJsLauncher = {
-                exitOnResourceError: true
-            };
-            _config.browsers = ['PhantomJS'];
+            _config.customLaunchers= {
+                // chrome setup for travis CI using chromium
+                Chrome_travis_ci: {
+                    base: 'Chrome',
+                    flags: [' — no-sandbox']
+                }
+            }
         }
     }
 
