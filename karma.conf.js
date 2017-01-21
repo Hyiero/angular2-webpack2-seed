@@ -52,6 +52,14 @@ module.exports = function(config){
         _config.reporters.push("coverage");
 
         _config.coverageReporter = {
+            check: {
+                global: {
+                    statements: 100,
+                    lines: 100,
+                    functions: 100,
+                    branches: 100
+                }
+            },
             dir: 'coverage/',
             reporters: [{
                 type: 'json',
