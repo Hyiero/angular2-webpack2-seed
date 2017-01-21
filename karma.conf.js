@@ -24,19 +24,13 @@ module.exports = function(config){
         webpackServer: {
             noInfo: true //Don't spam the console when running in karma
         },
-        reporters: ['mocha','trx','threshold'],
+        reporters: ['mocha','trx'],
         trxReporter: { outputFile: 'test-results.trx', shortTestName: false },
         port: 9876,
         colors: true,
         logLevel: config.LOG_INFO,
         autoWatch: !coverage,
-        singleRun: coverage,
-        thresholdReporter:{
-            statements: 90,
-            branches: 90,
-            functions: 90,
-            lines: 90
-        }
+        singleRun: coverage
     };
 
     if(browser)

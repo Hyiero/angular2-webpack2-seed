@@ -18,7 +18,7 @@ describe('App: ', () => {
        it('should have a title', () => {
            let component = TestBed.createComponent(AppComponent);
            component.detectChanges();
-           expect(component.debugElement.componentInstance.title).toBeUndefined();
+           expect(component.debugElement.componentInstance.title).toBeDefined();
        })
    })
 });
