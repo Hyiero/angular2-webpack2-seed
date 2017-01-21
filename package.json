@@ -15,7 +15,7 @@
     "rimraf": "rimraf",
     "postinstall": "npm i rimraf -g&& npm i karma -g",
     "start": "npm run build:dev",
-    "test": "set browser=false&& karma start --single-run true --auto-watch false",
+    "test": "set coverage=true&& set browser=false&& karma start --single-run true --auto-watch false",
     "test:dev": "set browser=true&& karma start",
     "test:coverage": "set browser=true&& karma start --single-run true && npm run coverage-html",
     "webpack:dev": "webpack-dev-server --config webpack.config.dev.js --progress",

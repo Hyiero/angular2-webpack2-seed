@@ -24,26 +24,7 @@ module.exports = function(config){
         webpackServer: {
             noInfo: true //Don't spam the console when running in karma
         },
-        reporters: ['mocha','trx','coverage'],
-        coverageReporter: {
-            check: {
-                global: {
-                    statements: 90,
-                    lines: 90,
-                    functions: 90,
-                    branches: 90
-                }
-            },
-            dir: 'coverage/',
-            reporters: [{
-                type: 'json',
-                dir: 'coverage',
-                subdir: 'json',
-                file: 'coverage-final.json'
-            },{
-                type: 'text-summary'
-            }]
-        },
+        reporters: ['mocha','trx'],
         trxReporter: { outputFile: 'test-results.trx', shortTestName: false },
         port: 9876,
         colors: true,
@@ -64,6 +45,29 @@ module.exports = function(config){
                     flags: [' — no-sandbox']
                 }
             }
+        }
+    }
+
+    if(coverage){
+        _config.reporters.push('coverage');
+        _config.coverageReporter = {
+            check: {
+                global: {
+                    statements: 90,
+                        lines: 90,
+                        functions: 90,
+                        branches: 90
+                }
+            },
+            dir: 'coverage/',
+                reporters: [{
+                type: 'json',
+                dir: 'coverage',
+                subdir: 'json',
+                file: 'coverage-final.json'
+            },{
+                type: 'text-summary'
+            }]
         }
     }
 

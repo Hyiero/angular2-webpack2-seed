@@ -45,21 +45,23 @@ module.exports = function makeWebpackConfig(){
         ]
     };
 
-    console.log('Adding Coverage Modules');
-    config.module.rules.push({
-        test: /\.ts$/,
-        enforce: 'post',
-        include: path.resolve('src'),
-        loader: 'istanbul-instrumenter-loader',
-        exclude: [/\.spec\.ts$/, /\.e2e\.ts$/, /node_modules/]
-    });
+    if(coverage){
+        console.log('Adding Coverage Modules');
+        config.module.rules.push({
+            test: /\.ts$/,
+            enforce: 'post',
+            include: path.resolve('src'),
+            loader: 'istanbul-instrumenter-loader',
+            exclude: [/\.spec\.ts$/, /\.e2e\.ts$/, /node_modules/]
+        });
 
-    config.module.rules.push({
-        test: /\.ts$/,
-        enforce: 'pre',
-        exclude: './node_modules',
-        loader: 'tslint-loader'
-    });
+        config.module.rules.push({
+            test: /\.ts$/,
+            enforce: 'pre',
+            exclude: './node_modules',
+            loader: 'tslint-loader'
+        });
+    }
 
     config.plugins = [
         // Workaround needed for angular 2
