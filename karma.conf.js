@@ -2,9 +2,8 @@ const path = require('path');
 
 const webpackConfig = require('./webpack.config.test');
 //In order for coverage we need to pass an environment variable
-var ENV = process.env.coverage;
 var browser = 'true' === process.env.browser;
-const coverage = ENV === 'true';
+const coverage = 'true' === process.env.coverage;
 
 module.exports = function(config){
     var _config = {
@@ -37,14 +36,17 @@ module.exports = function(config){
         _config.browsers = ['Chrome'];
     else{
         {
-            _config.browsers = ['Chrome_travis_ci'];
-            _config.customLaunchers = {
-                // chrome setup for travis CI using chromium
-                Chrome_travis_ci: {
-                    base: 'Chrome',
-                    flags: [' — no-sandbox']
-                }
-            }
+            _config.browsers = ['PhantomJS'];
+            _config.captureTimeout = 60000;
+            _config.browserNoActivityTimeout = 30000;
+            // _config.browsers = ['Chrome_travis_ci'];
+            // _config.customLaunchers = {
+            //     // chrome setup for travis CI using chromium
+            //     Chrome_travis_ci: {
+            //         base: 'Chrome',
+            //         flags: [' — no-sandbox']
+            //     }
+            // }
         }
     }
 
@@ -55,7 +57,7 @@ module.exports = function(config){
                 global: {
                     statements: 90,
                         lines: 90,
-                        functions: 60,
+                        functions: 90,
                         branches: 90
                 }
             },

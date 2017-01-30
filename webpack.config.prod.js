@@ -6,8 +6,8 @@ const htmlWebpackPlugin = require('html-webpack-plugin');
 const extractTextPlugin = require('extract-text-webpack-plugin');
 const copyWebpackPlugin = require('copy-webpack-plugin');
 const definePlugin = require('webpack/lib/DefinePlugin');
-const chunkManifestPlugin = require('chunk-manifest-webpack-plugin');
-const webpackChunkHash = require('webpack-chunk-hash');
+var chunkManifestPlugin = require('chunk-manifest-webpack-plugin');
+var webpackChunkHash = require('webpack-chunk-hash');
 
 module.exports = {
     context: __dirname,

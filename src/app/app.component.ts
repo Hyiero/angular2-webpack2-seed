@@ -8,10 +8,19 @@ import { Component, Input } from '@angular/core';
 })
 
 export class AppComponent {
-    title = 'Angular 2 Proof Of Concept';
-    @Input() newTitle: string;
+    title = 'Some Cool Stuff Happening Here';
+    newTitle: string;
+    @Input() sliderValue: number;
 
     updateTitle() {
         this.title = this.newTitle;
+    }
+
+    setNewTitle(value){
+        this.newTitle = value;
+    }
+
+    updateSliderValue(value){
+        this.sliderValue = value;
     }
 }
